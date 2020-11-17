@@ -1,6 +1,6 @@
 #pragma once
 
-#define BOOLEAN int
+typedef int boolean;
 #define TRUE 1
 #define FALSE 0
 

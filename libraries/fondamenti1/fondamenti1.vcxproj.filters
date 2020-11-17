@@ -21,6 +21,15 @@
     <ClCompile Include="common.c">
       <Filter>File di origine</Filter>
     </ClCompile>
+    <ClCompile Include="main.c">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="array.c">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="mystring.c">
+      <Filter>File di origine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mymath.h">
@@ -30,6 +39,12 @@
       <Filter>File di intestazione</Filter>
     </ClInclude>
     <ClInclude Include="error.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="array.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="mystring.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
   </ItemGroup>
