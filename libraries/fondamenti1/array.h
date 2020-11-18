@@ -3,7 +3,38 @@
 #include "common.h"
 #define TYPE int
 
+/* 
+* Fill the array from stdin
+* TYPE a[] is the array to fill
+* int dim is the  physical dimension of the array
+* 
+* return the logical dimension of the array 
+*/
 int fill(TYPE a[], int dim);
+
+/*
+* Extract from an array a sub array
+* 
+* TYPE a[] the array to extract from
+* int dimA the dimension of the a-array
+* TYPE first the first element to search
+* TYPE last the last element to search
+* int* dimS is the dimension of the array extracted
+* 
+* return the first element of the subarray
+*/
+TYPE* subArray(TYPE* a, int dimA, TYPE first, TYPE last, int* dimS);
+
+/*
+* Compare two elements of the same type
+* 
+* return 1 if they are the equal, otherwise return 0
+*/
 boolean compare_to(TYPE a, TYPE b);
+
+/*
+* Find inside of an array the given element el
+* 
+* return 1 if it is present, otherwise return 0
+*/
 boolean find(TYPE array[], int dim, TYPE el);
-//int* subArray(TYPE array[], int dim, TYPE);

@@ -1,5 +1,9 @@
-#include <string.h>
 #include "common.h"
+#include <string.h>
+
+/*
+* TODO: add some functions
+*/
 
 boolean mycmp(char str1[], int start, int last, char str2[]) {
 	int dim1 = last - start;

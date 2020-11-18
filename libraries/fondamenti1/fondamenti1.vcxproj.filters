@@ -38,9 +38,6 @@
     <ClInclude Include="common.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
-    <ClInclude Include="error.h">
-      <Filter>File di intestazione</Filter>
-    </ClInclude>
     <ClInclude Include="array.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>

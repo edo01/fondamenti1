@@ -1,0 +1,5 @@
+﻿  mystring.c
+C:\Users\django\Documents\fondamenti1\libraries\fondamenti1\mystring.c(6,1): warning C4267: 'inizializzazione': conversione da 'size_t' a 'int'. Possibile perdita di dati.
+C:\Users\django\Documents\fondamenti1\libraries\fondamenti1\mystring.c(16,1): warning C4267: 'inizializzazione': conversione da 'size_t' a 'int'. Possibile perdita di dati.
+C:\Users\django\Documents\fondamenti1\libraries\fondamenti1\mystring.c(17,1): warning C4267: 'inizializzazione': conversione da 'size_t' a 'int'. Possibile perdita di dati.
+  fondamenti1.vcxproj -> C:\Users\django\Documents\fondamenti1\libraries\x64\Debug\fondamenti1.exe

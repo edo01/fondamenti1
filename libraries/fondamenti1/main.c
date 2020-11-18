@@ -1,21 +1,22 @@
+/*
+	Fondamenti di Informatica T1 - modulo di laboratorio
+	Anno accademico 2020-2021
+
+	Powered by Edoardo Carrà
+*/
+
 #include <string.h>
 #include <stdio.h>
 #include "common.h"
 
-void find_secret(char str[], char str2[]) {
-	int i = 0, j = 0;
-	while (str[i] != '\0' && str2[j] != '\0') {
-		if (str[i] == str2[j]) {
-			i++;
-			str[i] = str[i] + 'a' - 'A'  ;
-		}
-		else i++;
-	}
-}
+/*
+#define _CRT_SECURE_NO_DEPRECATE // Sono direttive al     pre-compilatore, per poter utilizzare funzioni depre    cate
+//#define _CRT_SECURE_NO_WARNINGS
+*/
+
 int main() {
-	char str1[] = "mbaob";
-	char str2[] = "bb";
-	find_secret(str1, str2);
-	printf("%s", str1);
+	/*
+	put your code here and try the libraries
+	*/
 	return 0;
 }

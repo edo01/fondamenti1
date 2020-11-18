@@ -76,6 +76,7 @@ double integral(double a, double b, int n)
             result += area_ret;
         }
     }
+    return result;
 }
 
 double integrale_ricorsivo(double a, double b, int n) {

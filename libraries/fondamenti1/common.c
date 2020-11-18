@@ -1,13 +1,8 @@
-void scambia(double* a, double* b)
+#define TYPE int
+
+void invert(TYPE *a, TYPE *b)
 {
-    int t = *a;
+    TYPE t = *a;
     *a = *b;
     *b = t;
-}
-
-void fromMillisec(int millisec, int* mm, int* sec, int* min)
-{
-    *mm = millisec % 1000;
-    *sec = millisec / 1000;
-    *min = *sec / 60;
 }
