@@ -4,19 +4,23 @@
 
 	Powered by Edoardo Carrà
 */
+#pragma warning(disable:4996)
 
 #include <string.h>
 #include <stdio.h>
 #include "common.h"
+#include <stdlib.h>
 
 /*
-#define _CRT_SECURE_NO_DEPRECATE // Sono direttive al     pre-compilatore, per poter utilizzare funzioni depre    cate
+#define _CRT_SECURE_NO_DEPRECATE
 //#define _CRT_SECURE_NO_WARNINGS
 */
 
+#define _CRT_SECURE_NO_WARNINGS
+//#define _CRT_SECURE_NO_DEPRECATE 
+
+
 int main() {
-	/*
-	put your code here and try the libraries
-	*/
+
 	return 0;
 }

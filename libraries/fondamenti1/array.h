@@ -1,7 +1,6 @@
 #pragma once
 
 #include "common.h"
-#define TYPE int
 
 /* 
 * Fill the array from stdin
@@ -10,7 +9,7 @@
 * 
 * return the logical dimension of the array 
 */
-int fill(TYPE a[], int dim);
+int fill(TYPE_FILL a[], int dim);
 
 /*
 * Extract from an array a sub array
@@ -23,18 +22,18 @@ int fill(TYPE a[], int dim);
 * 
 * return the first element of the subarray
 */
-TYPE* subArray(TYPE* a, int dimA, TYPE first, TYPE last, int* dimS);
+TYPE* subArray(TYPE_SUBARRAY* a, int dimA, TYPE_SUBARRAY first, TYPE_SUBARRAY last, int* dimS);
 
 /*
 * Compare two elements of the same type
 * 
 * return 1 if they are the equal, otherwise return 0
 */
-boolean compare_to(TYPE a, TYPE b);
+boolean compareTo(TYPE_COMPARE_TO a, TYPE_COMPARE_TO b);
 
 /*
 * Find inside of an array the given element el
 * 
 * return 1 if it is present, otherwise return 0
 */
-boolean find(TYPE array[], int dim, TYPE el);
+boolean find(TYPE_FIND array[], int dim, TYPE_FIND el);

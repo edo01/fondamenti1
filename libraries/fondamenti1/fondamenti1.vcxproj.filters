@@ -30,6 +30,9 @@
     <ClCompile Include="mystring.c">
       <Filter>File di origine</Filter>
     </ClCompile>
+    <ClCompile Include="file.c">
+      <Filter>File di origine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mymath.h">
@@ -44,5 +47,9 @@
     <ClInclude Include="mystring.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="input.txt" />
+    <Text Include="output.txt" />
   </ItemGroup>
 </Project>

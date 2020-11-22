@@ -1,22 +1,29 @@
 #include "common.h"
 #include <stdio.h>
 
-#define TYPE int
 
-boolean compare_to(TYPE a, TYPE b) {
+#define TYPE_COMPARE_TO int
+
+boolean compareTo(TYPE_COMPARE_TO a, TYPE_COMPARE_TO b) {
 	return a == b;
 }
 
-TYPE* subArray(TYPE* a, int dimA, TYPE first, TYPE last, int* dimS) {
-	TYPE* p = a;
+#define TYPE_SUBARRY int
+
+boolean compareTo_subArray(TYPE_SUBARRY a, TYPE_SUBARRY b) {
+	return a == b;
+}
+
+TYPE_SUBARRY* subArray(TYPE_SUBARRY* a, int dimA, TYPE_SUBARRY first, TYPE_SUBARRY last, int* dimS) {
+	TYPE_SUBARRY* p = a;
 	int dim_volatile = 0;
 	boolean finish = FALSE;
 	for (int i = 0; i < dimA && !finish; i++) {
-		if (compare_to(a[i], first)) {
+		if (compareTo_subArray(a[i], first)) {
 			p += i;
 			dim_volatile = i;
 		}
-		else if (compare_to(a[i], last)) {
+		else if (compareTo_subArray(a[i], last)) {
 			*dimS = i - dim_volatile + 1;
 			finish = TRUE;
 		}
@@ -24,17 +31,18 @@ TYPE* subArray(TYPE* a, int dimA, TYPE first, TYPE last, int* dimS) {
 	return p;
 }
 
+#define TYPE_FILL int
 // check the input
-boolean _check_input(TYPE input) {
+boolean _check_input(TYPE_FILL input) {
 	return TRUE;
 }
 
-boolean _isExitValue(TYPE input) {
+boolean _isExitValue(TYPE_FILL input) {
 	return input == 0;
 }
 
-int fill(TYPE a[], int dim) {
-	TYPE input = 1, size = 0;
+int fill(TYPE_FILL a[], int dim) {
+	TYPE_FILL input = 1, size = 0;
 	while (!_isExitValue(input) && size < dim)
 	{
 		scanf_s("%d", &input); //change this if input type is different from int
@@ -48,11 +56,17 @@ int fill(TYPE a[], int dim) {
 	return size;
 }
 
-boolean find(TYPE array[], int dim, TYPE el) {
+#define TYPE_FIND int
+
+boolean compareTo_find(TYPE_FIND a, TYPE_FIND b) {
+	return a == b;
+}
+
+boolean find(TYPE_FIND array[], int dim, TYPE_FIND el) {
 	boolean found = FALSE;
 	for (int i = 0; i < dim && !found; i++)
 	{
-		if (compare_to(array[i], el)) found = TRUE;
+		if (compareTo_find(array[i], el)) found = TRUE;
 	}
 	return found;
 }
