@@ -1,2 +1,4 @@
-﻿  array.c
+﻿  main.c
+C:\Users\django\Documents\fondamenti1\libraries\fondamenti1\esercizi.h(282,47): warning C4267: '=': conversione da 'size_t' a 'int'. Possibile perdita di dati.
+C:\Users\django\Documents\fondamenti1\libraries\fondamenti1\esercizi.h(293,45): warning C4267: '=': conversione da 'size_t' a 'int'. Possibile perdita di dati.
   fondamenti1.vcxproj -> C:\Users\django\Documents\fondamenti1\libraries\x64\Debug\fondamenti1.exe

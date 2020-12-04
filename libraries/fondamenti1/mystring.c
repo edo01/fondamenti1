@@ -1,8 +1,9 @@
-#include "common.h"
+#include "mystring.h"
 #include <string.h>
 
 /*
 * TODO: add some functions
+* remember you atoi, atof ecc..
 */
 
 boolean mycmp(char str1[], int start, int last, char str2[]) {

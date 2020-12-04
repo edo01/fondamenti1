@@ -1,4 +1,7 @@
 #pragma once
+
+#include "element.h"
+
 /****************complex*****************/
 void toPolar(double, double, double*, double*);
 void sumComplex(double, double, double, double, double*, double*);

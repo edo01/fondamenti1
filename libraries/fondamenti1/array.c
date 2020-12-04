@@ -1,21 +1,22 @@
-#include "common.h"
 #include <stdio.h>
+#include <stdlib.h>
+#include "array.h"
 
-
-#define TYPE_COMPARE_TO int
+/*TODO
+* test
+* check input
+*/
 
 boolean compareTo(TYPE_COMPARE_TO a, TYPE_COMPARE_TO b) {
 	return a == b;
 }
 
-#define TYPE_SUBARRY int
-
-boolean compareTo_subArray(TYPE_SUBARRY a, TYPE_SUBARRY b) {
+boolean compareTo_subArray(TYPE_SUBARRAY a, TYPE_SUBARRAY b) {
 	return a == b;
 }
 
-TYPE_SUBARRY* subArray(TYPE_SUBARRY* a, int dimA, TYPE_SUBARRY first, TYPE_SUBARRY last, int* dimS) {
-	TYPE_SUBARRY* p = a;
+TYPE_SUBARRAY* subArray(TYPE_SUBARRAY* a, int dimA, TYPE_SUBARRAY first, TYPE_SUBARRAY last, int* dimS) {
+	TYPE_SUBARRAY* p = a;
 	int dim_volatile = 0;
 	boolean finish = FALSE;
 	for (int i = 0; i < dimA && !finish; i++) {
@@ -31,7 +32,6 @@ TYPE_SUBARRY* subArray(TYPE_SUBARRY* a, int dimA, TYPE_SUBARRY first, TYPE_SUBAR
 	return p;
 }
 
-#define TYPE_FILL int
 // check the input
 boolean _check_input(TYPE_FILL input) {
 	return TRUE;
@@ -56,7 +56,11 @@ int fill(TYPE_FILL a[], int dim) {
 	return size;
 }
 
-#define TYPE_FIND int
+void fill_random(int a[], int dim) {
+	for (int i = 0; i < dim; i++) {
+		a[i] = 1 + rand()%100;
+	}
+}
 
 boolean compareTo_find(TYPE_FIND a, TYPE_FIND b) {
 	return a == b;
@@ -67,6 +71,16 @@ boolean find(TYPE_FIND array[], int dim, TYPE_FIND el) {
 	for (int i = 0; i < dim && !found; i++)
 	{
 		if (compareTo_find(array[i], el)) found = TRUE;
+	}
+	return found;
+}
+
+//manca find_position
+boolean find_position(TYPE_FIND array[], int dim, TYPE_FIND el, int *pos) {
+	boolean found = FALSE;
+	for (int i = 0; i < dim && !found; i++)
+	{
+		if (compareTo_find(array[i], el)) found = TRUE, *pos = i;
 	}
 	return found;
 }
