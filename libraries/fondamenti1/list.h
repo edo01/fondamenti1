@@ -27,4 +27,5 @@ int lenght(list l);
 boolean isMember(ELEMENT el, list l);
 void show_list(list l);
 list copy(list l);
-
+list delete(ELEMENT el, list l);
+list insord(ELEMENT el, list l, int ord);

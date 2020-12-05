@@ -3,14 +3,11 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-
-#define TEST
 /*
 --------------------------------------------------------------------------
 ---------------------------SORTING ALGORITHMS-----------------------------
 --------------------------------------------------------------------------
 */
-
 
 /*TODO:
 * check the input
@@ -27,7 +24,7 @@ void stampResult() {
 }
 #endif // TEST
 
-
+//DEPENDS ON THE TYPE OF THE ELEMENT
 void swap(TYPE_SORTING* el1, TYPE_SORTING* el2) {
 
 #ifdef TEST
@@ -39,6 +36,7 @@ void swap(TYPE_SORTING* el1, TYPE_SORTING* el2) {
 	*el2 = temp;
 }
 
+//DEPENDS ON THE TYPE OF THE ELEMENT
 int compareToSorting(TYPE_SORTING *el1, TYPE_SORTING *el2, int order) {
 #ifdef	TEST
 	incComp();
@@ -46,6 +44,7 @@ int compareToSorting(TYPE_SORTING *el1, TYPE_SORTING *el2, int order) {
 	int result;
 
 	//CHANGE THIS AREA
+	//remember to use the compareTo_el of the element.h library
 	if (*el1 > *el2)
 		result = 1;
 	else if (*el1 < *el2)
@@ -53,7 +52,7 @@ int compareToSorting(TYPE_SORTING *el1, TYPE_SORTING *el2, int order) {
 	else result = 0;
 	//CHANGE THIS AREA
 
-	// invert the result if the    is DECREASING(-1)
+	// invert the result if the is DECREASING(-1)
 	result = result * order;
 	return result; 
 }
@@ -115,7 +114,7 @@ void insertSort(TYPE_SORTING a[], int dim, int order) {
 //attention, a[] is the result
 void merge(TYPE_SORTING a[], int dimA, TYPE_SORTING b[], int dimB, int order) {
 	int dimResult = (dimA + dimB);
-	TYPE_SORTING* temp = (TYPE_SORTING*)malloc(dimResult * sizeof(TYPE_SORTING));
+	TYPE_SORTING* temp = (TYPE_SORTING*) malloc(dimResult * sizeof(TYPE_SORTING));
 	if (temp == NULL) return;
 	int j_done = 0, result_index = 0;
 	for (int i = 0; i < dimA; i++) {
@@ -127,7 +126,7 @@ void merge(TYPE_SORTING a[], int dimA, TYPE_SORTING b[], int dimB, int order) {
 		temp[result_index++] = a[i];
 	}
 	for (int i = j_done; i < dimB; i++) {
-		temp[result_index] = b[i];
+		temp[result_index] = b[i]; // WARNING HERE
 		result_index++;
 	}
 
@@ -146,6 +145,8 @@ void mergeSort(TYPE_SORTING a[], int dim, int order) {
 	merge(a, split_index, &a[split_index], dim - split_index, order);
 }
 
+
+// TO DEBUG
 void quickSort(TYPE_SORTING a[], int dim, int order) {
 	boolean flag = FALSE;
 	if (dim <= 1) {

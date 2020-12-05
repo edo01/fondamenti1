@@ -1,6 +1,9 @@
 #include "list.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include "sort.h"
+
+//head is the first element of the list
 
 list emptyList() {
 	return NULL;
@@ -89,4 +92,22 @@ list reverse(list l) {
 		l = tail(l);
 	}
 	return reversed;
+}
+
+list delete(ELEMENT el, list l) {
+	if (empty(l)) return l;
+	else if (!isEqual(head(l), el)) return cons(head(l), delete(el, tail(l)));
+	else return tail(l);
+}
+// TO DEBUG!!!
+list insord(ELEMENT el, list l, int ord) {
+	if (empty(l)) return cons(el,l);
+	else if (ord == INCREASING) {
+		if (compareTo_el(el, head(l)) == less) return cons(el, l);
+		else return cons(head(l), insord(el, tail(l), ord));
+	}
+	else {
+		if (compareTo_el(el, head(l)) == more) return cons(el, l);
+		else return cons(head(l), insord(el, tail(l), ord));
+	}
 }

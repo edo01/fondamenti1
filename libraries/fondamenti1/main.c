@@ -86,9 +86,12 @@ int main() {
 		printf("\ninserisci un numero:");
 		scanf("%d", &input);
 		if (input == 0) break;
-		l = cons(input, l);
+		l = insord(input, l, INCREASING);
+		show_list(l);
 	}
-	show_list(copy(l));
+
+	//show_list(delete(5,l));
+
 	list l2 = emptyList();
 
 	for (int i = 0; i < 10; i++) {

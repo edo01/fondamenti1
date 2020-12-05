@@ -20,4 +20,10 @@ void put(int el, int* dest) {
 void print_el(int el) {
 	printf("%d", el);
 }
+
+int input() {
+	int a;
+	scanf_s("%d\n", &a);
+	return a;
+}
 #endif // TEST
