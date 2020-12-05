@@ -27,9 +27,6 @@
     <ClCompile Include="mystring.c">
       <Filter>File di origine</Filter>
     </ClCompile>
-    <ClCompile Include="file.c">
-      <Filter>File di origine</Filter>
-    </ClCompile>
     <ClCompile Include="esercizi.h">
       <Filter>File di origine</Filter>
     </ClCompile>
@@ -57,9 +54,6 @@
       <Filter>File di intestazione</Filter>
     </ClInclude>
     <ClInclude Include="element.h">
-      <Filter>File di intestazione</Filter>
-    </ClInclude>
-    <ClInclude Include="file.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
     <ClInclude Include="list.h">

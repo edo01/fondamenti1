@@ -2,7 +2,7 @@
 
 #include "element.h"
 
-#define ELEMENT int
+#define ELEMENT element
 
 typedef struct list_element{ 
 	ELEMENT value;

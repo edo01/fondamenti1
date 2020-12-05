@@ -142,7 +142,6 @@
     <ClCompile Include="array.c" />
     <ClCompile Include="element.c" />
     <ClCompile Include="esercizi.h" />
-    <ClCompile Include="file.c" />
     <ClCompile Include="list.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="mymath.c" />
@@ -152,7 +151,6 @@
   <ItemGroup>
     <ClInclude Include="array.h" />
     <ClInclude Include="element.h" />
-    <ClInclude Include="file.h" />
     <ClInclude Include="list.h" />
     <ClInclude Include="mystring.h" />
     <ClInclude Include="mymath.h" />

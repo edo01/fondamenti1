@@ -15,13 +15,39 @@ typedef int boolean;
 typedef enum { more, less, equal } typeCompare;
 
 
-// EVERY NEW TYPE HAS THIS FUNCTIONS
-#ifdef TEST
+typedef int element;
 
-boolean isEqual(int el, int el2);
-typeCompare compareTo_el(int el, int el2);
-void put(int el, int* dest);
+/// <summary>
+/// Check if the first element is equal to the second.
+/// </summary>
+/// <param name="el">first element</param>
+/// <param name="el2">second element</param>
+/// <returns>TRUE if the elements are equal, otherwise returns FALSE</returns>
+boolean isEqual(element el, int el2);
 
-int input_el(int* el);
-void print_el(int el1);
-#endif // TEST
+/// <summary>
+/// Compare to elements. Returns a typeCompare value.
+/// </summary>
+/// <param name="el">first element</param>
+/// <param name="el2">second element</param>
+/// <returns>"more" if the first is larger than the second, "equal" if they are equal, less if the second is larger than the first </returns>
+typeCompare compareTo_el(element el, element el2);
+
+/// <summary>
+/// copy an element inside of another element.
+/// </summary>
+/// <param name="el"> the element to copy</param>
+/// <param name="dest"> the destination</param>
+void put(element el, element* dest);
+
+/// <summary>
+/// Ask from input an element.
+/// </summary>
+/// <returns>the element taken from the input.</returns>
+element input_el();
+
+/// <summary>
+/// Print an element.
+/// </summary>
+/// <param name="el1">the element to print</param>
+void print_el(element el1);
