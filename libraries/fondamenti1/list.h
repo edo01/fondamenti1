@@ -1,12 +1,14 @@
-#pragma once
+
+#ifndef LIST
+#define LIST
 
 #include "element.h"
 
 #define ELEMENT element
 
-typedef struct list_element{ 
+typedef struct list_element {
 	ELEMENT value;
-    struct list_element* next; 
+	struct list_element* next;
 } item;
 
 typedef item* list;
@@ -119,3 +121,5 @@ list delete(ELEMENT el, list l);
 /// <param name="ord">INCREASING/DECREASING</param>
 /// <returns>Returns an ordered list.</returns>
 list insord(ELEMENT el, list l, int ord);
+
+#endif // !LIST

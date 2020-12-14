@@ -4,19 +4,13 @@
 
 	Powered by Edoardo Carrà
 */
-#pragma warning(disable:4996)
+//#pragma warning(disable:4996)
 
-#include <string.h>
-#include <stdio.h>
-#include "element.h"
-#include <stdlib.h>
-#include "array.h"
-#include "sort.h"
+
 #include "esercizi.h"
-#include "list.h"
+#include "array.h"
 
-
-#define _CRT_SECURE_NO_WARNINGS
+//#define _CRT_SECURE_NO_WARNINGS
 //#define _CRT_SECURE_NO_DEPRECATE 
 
 /*
@@ -76,32 +70,34 @@ int main() {
 	}
 	return 0;
 }
-*/
+int input;
+list l = emptyList();
+
+for (int i = 0; i < 10; i++) {
+	printf("\ninserisci un numero:");
+	scanf("%d", &input);
+	if (input == 0) break;
+	l = insord(input, l, INCREASING);
+	show_list(l);
+}
+
+//show_list(delete(5,l));
+
+list l2 = emptyList();
+
+for (int i = 0; i < 10; i++) {
+	printf("\ninserisci un numero:");
+	scanf("%d", &input);
+	if (input == 0) break;
+	l2 = cons(input, l2);
+}
+show_list(l2);
+
+show_list(append_c(l, l2));
+return 0;*/
+
+#include "sort.h"
+
 
 int main() {
-	int input;
-	list l = emptyList();
-
-	/*for (int i = 0; i < 10; i++) {
-		printf("\ninserisci un numero:");
-		scanf("%d", &input);
-		if (input == 0) break;
-		l = insord(input, l, INCREASING);
-		show_list(l);
-	}
-	*/
-	//show_list(delete(5,l));
-
-	list l2 = emptyList();
-
-	for (int i = 0; i < 10; i++) {
-		printf("\ninserisci un numero:");
-		scanf("%d", &input);
-		if (input == 0) break;
-		l2 = cons(input, l2);
-	}
-	show_list(l2);
-
-	show_list(append_c(l, l2));
-	return 0;
 }

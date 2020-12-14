@@ -1,4 +1,6 @@
-#pragma once
+
+#ifndef MYMATH
+#define MYMATH
 
 #include "element.h"
 
@@ -12,3 +14,6 @@ int fact(int);
 int binomioNewton(int, int);
 double doubleAbs(double);
 /*-------------------------------------------------*/
+
+#endif // !MYMATH
+

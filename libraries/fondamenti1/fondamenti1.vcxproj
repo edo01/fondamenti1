@@ -142,6 +142,7 @@
     <ClCompile Include="array.c" />
     <ClCompile Include="element.c" />
     <ClCompile Include="esercizi.h" />
+    <ClCompile Include="myfile.c" />
     <ClCompile Include="list.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="mymath.c" />
@@ -152,6 +153,7 @@
     <ClInclude Include="array.h" />
     <ClInclude Include="element.h" />
     <ClInclude Include="list.h" />
+    <ClInclude Include="myfile.h" />
     <ClInclude Include="mystring.h" />
     <ClInclude Include="mymath.h" />
     <ClInclude Include="sort.h" />
@@ -159,6 +161,7 @@
   <ItemGroup>
     <Text Include="input.txt" />
     <Text Include="output.txt" />
+    <Text Include="persone.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

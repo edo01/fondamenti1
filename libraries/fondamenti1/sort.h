@@ -1,13 +1,13 @@
-#pragma once
+
+#ifndef SORT
+#define SORT
 
 #include "element.h"
-
-#define TEST 
 
 #define INCREASING 1
 #define DECREASING -1
 
-#define TYPE_SORTING int
+#define TYPE_SORTING element
 
 /// <summary>
 /// Sort an array of given dimension
@@ -50,7 +50,11 @@ void mergeSort(TYPE_SORTING a[], int dim, int order);
 void quickSort(TYPE_SORTING a[], int dim, int order);
 
 
+int compareToSorting(TYPE_SORTING* el, TYPE_SORTING* el2, int ord);
+
 //test
 #ifdef TEST
 void stampResult();
 #endif // TEST
+
+#endif

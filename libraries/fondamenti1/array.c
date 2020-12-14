@@ -7,12 +7,8 @@
 * check input
 */
 
-boolean compareTo(TYPE_COMPARE_TO a, TYPE_COMPARE_TO b) {
-	return a == b;
-}
-
-boolean compareTo_subArray(TYPE_SUBARRAY a, TYPE_SUBARRAY b) {
-	return a == b;
+boolean equal_subArray(TYPE_SUBARRAY* a, TYPE_SUBARRAY* b) {
+	return isEqual(a, b);
 }
 
 TYPE_SUBARRAY* subArray(TYPE_SUBARRAY* a, int dimA, TYPE_SUBARRAY first, TYPE_SUBARRAY last, int* dimS) {
@@ -20,11 +16,11 @@ TYPE_SUBARRAY* subArray(TYPE_SUBARRAY* a, int dimA, TYPE_SUBARRAY first, TYPE_SU
 	int dim_volatile = 0;
 	boolean finish = FALSE;
 	for (int i = 0; i < dimA && !finish; i++) {
-		if (compareTo_subArray(a[i], first)) {
+		if (equal_subArray(&a[i], &first)) {
 			p += i;
 			dim_volatile = i;
 		}
-		else if (compareTo_subArray(a[i], last)) {
+		else if (equal_subArray(&a[i], &last)) {
 			*dimS = i - dim_volatile + 1;
 			finish = TRUE;
 		}
@@ -62,15 +58,15 @@ void fill_random(int a[], int dim) {
 	}
 }
 
-boolean compareTo_find(TYPE_FIND a, TYPE_FIND b) {
-	return a == b;
+boolean equal_find(TYPE_FIND *a, TYPE_FIND *b) {
+	return isEqual(a, b);
 }
 
 boolean find(TYPE_FIND array[], int dim, TYPE_FIND el) {
 	boolean found = FALSE;
 	for (int i = 0; i < dim && !found; i++)
 	{
-		if (compareTo_find(array[i], el)) found = TRUE;
+		if (equal_find(&array[i], &el)) found = TRUE;
 	}
 	return found;
 }

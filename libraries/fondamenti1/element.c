@@ -1,13 +1,13 @@
 #include "element.h"
 
-boolean isEqual(element el, element el2) {
-	return el == el2;
+boolean isEqual(element *el, element *el2) {
+	return *el == *el2;
 }
 
-typeCompare compareTo_el(element el, element el2) {
+typeCompare compareTo_el(element* el, element* el2) {
 	typeCompare result;
-	if (el == el2) result = equal;
-	else if (el > el2) result = more;
+	if (*el == *el2) result = equal;
+	else if (*el > *el2) result = more;
 	else result = less;
 }
 

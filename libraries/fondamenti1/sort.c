@@ -43,14 +43,11 @@ int compareToSorting(TYPE_SORTING *el1, TYPE_SORTING *el2, int order) {
 #endif // TEST
 	int result;
 
-	//CHANGE THIS AREA
-	//remember to use the compareTo_el of the element.h library
-	if (*el1 > *el2)
+	if (compareTo(*el1, *el2)==more)
 		result = 1;
-	else if (*el1 < *el2)
+	else if (compareTo(*el1, *el2)==less)
 		result = -1;
 	else result = 0;
-	//CHANGE THIS AREA
 
 	// invert the result if the is DECREASING(-1)
 	result = result * order;

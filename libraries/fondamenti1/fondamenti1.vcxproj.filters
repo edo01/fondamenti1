@@ -39,6 +39,9 @@
     <ClCompile Include="list.c">
       <Filter>File di origine</Filter>
     </ClCompile>
+    <ClCompile Include="myfile.c">
+      <Filter>File di origine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mymath.h">
@@ -59,9 +62,15 @@
     <ClInclude Include="list.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
+    <ClInclude Include="myfile.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="input.txt" />
     <Text Include="output.txt" />
+    <Text Include="persone.txt">
+      <Filter>File di risorse</Filter>
+    </Text>
   </ItemGroup>
 </Project>

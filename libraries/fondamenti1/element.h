@@ -1,18 +1,18 @@
-#pragma once
+
+#ifndef ELEMENT
+#define ELEMENT
 
 #include <stdio.h>
-
-//consider to change int into element
-
-
-//before the exam remember to toggle this
-#define TEST
 
 typedef int boolean;
 #define TRUE 1
 #define FALSE 0
 
 typedef enum { more, less, equal } typeCompare;
+
+/*----------------EXAM space-------------------*/
+
+/*----------------exam space-------------------*/
 
 
 typedef int element;
@@ -51,3 +51,5 @@ element input_el();
 /// </summary>
 /// <param name="el1">the element to print</param>
 void print_el(element el1);
+
+#endif
