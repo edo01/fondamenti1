@@ -7,7 +7,7 @@
 #define INCREASING 1
 #define DECREASING -1
 
-#define TYPE_SORTING element
+#define TYPE_SORTING Element
 
 /// <summary>
 /// Sort an array of given dimension

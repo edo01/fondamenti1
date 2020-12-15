@@ -10,6 +10,6 @@ int readField(char buffer[], int dim, char sep, FILE* f) {
 		input = fgetc(f);
 		count++;
 	}
-	buffer[count] = "\0";
+	buffer[count] = '\0';
 	return input;
 }

@@ -8,7 +8,7 @@
 */
 
 boolean equal_subArray(TYPE_SUBARRAY* a, TYPE_SUBARRAY* b) {
-	return isEqual(a, b);
+	return isEqual(*a, *b);
 }
 
 TYPE_SUBARRAY* subArray(TYPE_SUBARRAY* a, int dimA, TYPE_SUBARRAY first, TYPE_SUBARRAY last, int* dimS) {
@@ -59,7 +59,7 @@ void fill_random(int a[], int dim) {
 }
 
 boolean equal_find(TYPE_FIND *a, TYPE_FIND *b) {
-	return isEqual(a, b);
+	return isEqual(*a, *b);
 }
 
 boolean find(TYPE_FIND array[], int dim, TYPE_FIND el) {
@@ -76,7 +76,7 @@ boolean find_position(TYPE_FIND array[], int dim, TYPE_FIND el, int *pos) {
 	boolean found = FALSE;
 	for (int i = 0; i < dim && !found; i++)
 	{
-		if (compareTo_find(array[i], el)) found = TRUE, *pos = i;
+		if (equal_find(&array[i], &el)) found = TRUE, *pos = i;
 	}
 	return found;
 }

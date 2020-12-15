@@ -1,26 +1,27 @@
-#include "element.h"
+#include "Element.h"
 
-boolean isEqual(element *el, element *el2) {
-	return *el == *el2;
+boolean isEqual(Element el, Element el2) {
+	return el == el2;
 }
 
-typeCompare compareTo_el(element* el, element* el2) {
+typeCompare compareTo_el(Element el, Element el2) {
 	typeCompare result;
-	if (*el == *el2) result = equal;
-	else if (*el > *el2) result = more;
+	if (el == el2) result = equal;
+	else if (el > el2) result = more;
 	else result = less;
+	return result;
 }
 
-void put(element el, element* dest) {
+void put(Element el, Element* dest) {
 	*dest = el;
 }
 
-void print_el(element el) {
+void print_el(Element el) {
 	printf("%d", el);
 }
 
-element input_el() {
-	element a;
+Element input_el() {
+	Element a;
 	scanf_s("%d\n", &a);
 	return a;
 }

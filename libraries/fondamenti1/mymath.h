@@ -2,6 +2,8 @@
 #ifndef MYMATH
 #define MYMATH
 
+#include <math.h>
+
 #include "element.h"
 
 /****************complex*****************/

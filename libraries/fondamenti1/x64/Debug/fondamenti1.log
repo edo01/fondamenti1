@@ -1,5 +1,14 @@
-﻿  main.c
-C:\Users\django\Documents\fondamenti1\libraries\fondamenti1\esercizi.h(16,24): warning C4474: 'scanf': sono stati passati troppi argomenti per la stringa di formato
-C:\Users\django\Documents\fondamenti1\libraries\fondamenti1\esercizi.h(16,24): message : con i segnaposto e i relativi parametri sono previsti argomenti variadic 1, ma sono stati specificati quelli 2
-C:\Users\django\Documents\fondamenti1\libraries\fondamenti1\main.c(126): warning C4716: 'eliminaDuplicati': deve restituire un valore
+﻿  array.c
+  element.c
+  myfile.c
+  list.c
+  main.c
+  mymath.c
+  mystring.c
+C:\Users\django\Documents\fondamenti1\libraries\fondamenti1\mystring.c(11,1): warning C4267: 'inizializzazione': conversione da 'size_t' a 'int'. Possibile perdita di dati.
+C:\Users\django\Documents\fondamenti1\libraries\fondamenti1\mystring.c(21,1): warning C4267: 'inizializzazione': conversione da 'size_t' a 'int'. Possibile perdita di dati.
+C:\Users\django\Documents\fondamenti1\libraries\fondamenti1\mystring.c(22,1): warning C4267: 'inizializzazione': conversione da 'size_t' a 'int'. Possibile perdita di dati.
+  sort.c
+  Generazione del codice in corso...
+  esercizi.h
   fondamenti1.vcxproj -> C:\Users\django\Documents\fondamenti1\libraries\x64\Debug\fondamenti1.exe

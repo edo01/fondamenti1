@@ -15,41 +15,41 @@ typedef enum { more, less, equal } typeCompare;
 /*----------------exam space-------------------*/
 
 
-typedef int element;
+typedef int Element;
 
 /// <summary>
-/// Check if the first element is equal to the second.
+/// Check if the first Element is equal to the second.
 /// </summary>
-/// <param name="el">first element</param>
-/// <param name="el2">second element</param>
-/// <returns>TRUE if the elements are equal, otherwise returns FALSE</returns>
-boolean isEqual(element el, int el2);
+/// <param name="el">first Element</param>
+/// <param name="el2">second Element</param>
+/// <returns>TRUE if the Elements are equal, otherwise returns FALSE</returns>
+boolean isEqual(Element el, int el2);
 
 /// <summary>
-/// Compare to elements. Returns a typeCompare value.
+/// Compare to Elements. Returns a typeCompare value.
 /// </summary>
-/// <param name="el">first element</param>
-/// <param name="el2">second element</param>
+/// <param name="el">first Element</param>
+/// <param name="el2">second Element</param>
 /// <returns>"more" if the first is larger than the second, "equal" if they are equal, less if the second is larger than the first </returns>
-typeCompare compareTo_el(element el, element el2);
+typeCompare compareTo_el(Element el, Element el2);
 
 /// <summary>
-/// copy an element inside of another element.
+/// copy an Element inside of another Element.
 /// </summary>
-/// <param name="el"> the element to copy</param>
+/// <param name="el"> the Element to copy</param>
 /// <param name="dest"> the destination</param>
-void put(element el, element* dest);
+void put(Element el, Element* dest);
 
 /// <summary>
-/// Ask from input an element.
+/// Ask from input an Element.
 /// </summary>
-/// <returns>the element taken from the input.</returns>
-element input_el();
+/// <returns>the Element taken from the input.</returns>
+Element input_el();
 
 /// <summary>
-/// Print an element.
+/// Print an Element.
 /// </summary>
-/// <param name="el1">the element to print</param>
-void print_el(element el1);
+/// <param name="el1">the Element to print</param>
+void print_el(Element el1);
 
 #endif

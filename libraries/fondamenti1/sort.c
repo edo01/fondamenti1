@@ -43,21 +43,22 @@ int compareToSorting(TYPE_SORTING *el1, TYPE_SORTING *el2, int order) {
 #endif // TEST
 	int result;
 
-	if (compareTo(*el1, *el2)==more)
-		result = 1;
-	else if (compareTo(*el1, *el2)==less)
+	if (compareTo_el(*el1, *el2)==more)
 		result = -1;
+	else if (compareTo_el(*el1, *el2)==less)
+		result = 1;
 	else result = 0;
 
-	// invert the result if the is DECREASING(-1)
+	// The result is >0 if the order is correct and <0 if the order is incorrect
+	// return 0 if the two elements are equal
 	result = result * order;
 	return result; 
 }
 
 void findMaxPosition(TYPE_SORTING a[], int dim, int order) {
-	int max_min_index = 0; // save the position of the element
-	for (int i = 1; i < dim; i++) {
-		if (compareToSorting(&a[i], &a[max_min_index], order)>0) {
+	int max_min_index = 0; // save the position of the max/min element
+	for (int i = 0; i < dim; i++) {
+		if (compareToSorting(&a[i], &a[max_min_index], order)<0) {
 			max_min_index = i;
 		}
 	}
@@ -75,7 +76,7 @@ void bubbleSort(TYPE_SORTING a[], int dim, int order) {
 	for (int i = 0; i < (dim - 1) && !flag; i++) {
 		flag = TRUE; // if remain TRUE the array is sorted
 		for (int j = 0; (j < dim - 1 - i); j++) {
-			if (compareToSorting(&a[j], &a[j + 1], order)>0) {
+			if (compareToSorting(&a[j], &a[j + 1], order)<0) {
 				swap(&a[j], &a[j + 1]);
 				flag = FALSE;
 			}
@@ -83,28 +84,18 @@ void bubbleSort(TYPE_SORTING a[], int dim, int order) {
 	}
 }
 
-void translate(TYPE_SORTING a[], int dim, int pos) {
-	// remember to check if pos<dim
-	for (int i = dim - 1; i >= pos; i--) {
-		a[i + 1] = a[i];
-		incSwap();
+void insert(TYPE_SORTING a[], int pos, int order) {
+	int i = pos - 1, x = a[pos]; 
+	while (i >= 0 && compareToSorting(&x, &a[i], order)>0) {
+		a[i + 1] = a[i]; /* traslate */
+		i--; 
 	}
-}
-
-void insert(TYPE_SORTING a[], int dim, TYPE_SORTING el, int order) {
-	boolean inserted = FALSE;
-	for (int i = 0; i < dim && !inserted; i++) {
-		if (compareToSorting(&a[i], &el, order)>0) {
-			translate(a, dim, i);
-			a[i] = el;
-			inserted = TRUE;
-		}
-	}
+	a[i + 1] = x; /* insert the element */
 }
 
 void insertSort(TYPE_SORTING a[], int dim, int order) {
-	for (int i = 1; i < dim - 1; i++) {
-		insert(a, i + 1, a[i + 1], order);
+	for (int i = 1; i < dim; i++) {
+		insert(a, i, order);
 	}
 }
 
@@ -112,18 +103,18 @@ void insertSort(TYPE_SORTING a[], int dim, int order) {
 void merge(TYPE_SORTING a[], int dimA, TYPE_SORTING b[], int dimB, int order) {
 	int dimResult = (dimA + dimB);
 	TYPE_SORTING* temp = (TYPE_SORTING*) malloc(dimResult * sizeof(TYPE_SORTING));
-	if (temp == NULL) return;
+	if (temp == NULL) exit(-1);//check malloc
 	int j_done = 0, result_index = 0;
 	for (int i = 0; i < dimA; i++) {
 		for (int j = j_done; j < dimB; j++) {
-			if (compareToSorting(&a[i], &b[j], order)>0) {
+			if (compareToSorting(&a[i], &b[j], order)<0) {
 				temp[result_index++] = b[j_done++];
 			}
 		}
 		temp[result_index++] = a[i];
 	}
 	for (int i = j_done; i < dimB; i++) {
-		temp[result_index] = b[i]; // WARNING HERE
+		temp[result_index] = b[i];
 		result_index++;
 	}
 
@@ -143,44 +134,39 @@ void mergeSort(TYPE_SORTING a[], int dim, int order) {
 }
 
 
-// TO DEBUG
-void quickSort(TYPE_SORTING a[], int dim, int order) {
-	boolean flag = FALSE;
-	if (dim <= 1) {
-		flag = TRUE;
-	}
-	else if (dim == 2) {
-		if (!compareToSorting(&a[1], &a[0], order)>0) {
-			swap(&a[0], &a[1]);
+void quickSortR(TYPE_SORTING a[], int iniz, int fine, int order) {
+	int i, j, iPivot;
+	TYPE_SORTING pivot; 
+	if (iniz < fine) {
+		i = iniz; 
+		j = fine;
+		iPivot = fine;
+		put(a[iPivot], &pivot);
+		do  /* trova la posizione del pivot */ 
+		{ 
+			while (i < j && (compareToSorting(&a[i], &pivot, order)>=0)) i++; 
+			while (j > i && (compareToSorting(&a[j], &pivot, order)<=0)) j--;
+			if (i < j) swap(&a[i], &a[j]); 
 		}
-		flag = TRUE;
-	}
-	TYPE_SORTING pivot = a[dim - 1];
-	int j = dim - 2, i = 0;
-	int pivot_position = 0;
-	if (!flag) {
-		while (pivot_position != j) {
-			if (!compareToSorting(&pivot, &a[i], order)>0) {
-				while (!flag && i != j) {
-					if (!compareToSorting(&a[j], &pivot, order)>0) {
-						swap(&a[i], &a[j]);
-						flag = TRUE;
-					}
-					j--;
-				}
-				flag = FALSE;
-			}
-			pivot_position = i;
-			i++;
+		while (i < j);
+		/* determinati i due sottoinsiemi */
+		/* posiziona il pivot */
+		if (i != iPivot && !isEqual(a[i],a[iPivot])) 
+		{ 
+			swap(&a[i], &a[iPivot]);
+			iPivot = i;
 		}
-		if (!compareToSorting(&pivot, &a[pivot_position], order)>0) {
-			swap(&a[pivot_position], &a[dim - 1]);
-		}
-		else {
-			pivot_position = dim - 1;
-		}
+		/* ricorsione sulle sottoparti, se necessario */
+		if (iniz < iPivot - 1)  
+			quickSortR(a, iniz, iPivot - 1, order); 
+		if (iPivot + 1 < fine)  
+			quickSortR(a, iPivot + 1, fine, order);
+	} /* (iniz < fine) */
+} /* quickSortR */
 
-		quickSort(a, pivot_position, order);
-		if (pivot_position != (dim - 2)) quickSort(&a[pivot_position + 1], dim - pivot_position - 1, order);
-	}
+
+void quickSort(TYPE_SORTING a[], int dim, int order) {
+	if (dim < 3 ) return;
+	quickSortR(a, 0, dim - 1, order);
 }
+

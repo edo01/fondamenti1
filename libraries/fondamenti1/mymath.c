@@ -89,4 +89,7 @@ double integrale_ricorsivo(double a, double b, int n) {
             return (base * y) + integrale_ricorsivo(a + base, b, n - 1);
         }
     }
+    else {
+        return UNDEFINED;
+    }
 }

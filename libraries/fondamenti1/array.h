@@ -4,9 +4,9 @@
 
 #include "element.h"
 
-#define TYPE_SUBARRAY element
-#define TYPE_FILL element
-#define TYPE_FIND element
+#define TYPE_SUBARRAY Element
+#define TYPE_FILL Element
+#define TYPE_FIND Element
 
 //TODO: TEST LIBRARIES.
 
