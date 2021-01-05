@@ -1,3 +1,12 @@
+/*
+	Fondamenti di Informatica T1 - modulo di laboratorio
+	Anno accademico 2020-2021
+
+	Cognome nome: Carrà Edoardo
+	Numero matricola: 0000970140
+	numero esame:
+*/
+
 #include "sort.h"
 #include "array.h"
 
@@ -9,47 +18,25 @@
 --------------------------------------------------------------------------
 */
 
-/*TODO:
-* check the input
-*/
-#ifdef TEST
 
-int swapCount = 0, compCount = 0;
-void incSwap() { swapCount++; }
-void incComp() { compCount++; }
-
-void stampResult() {
-	printf("numero di comparazioni:%d\n", compCount);
-	printf("numero di swap:%d\n\n", swapCount);
-}
-#endif // TEST
-
-//DEPENDS ON THE TYPE OF THE ELEMENT
 void swap(TYPE_SORTING* el1, TYPE_SORTING* el2) {
 
-#ifdef TEST
-	incSwap();
-#endif // TEST
-
-	TYPE_SORTING temp = *el1;
-	*el1 = *el2;
-	*el2 = temp;
+	TYPE_SORTING temp;
+	putArray(*el1, &temp);
+	putArray(*el2, el1);
+	putArray(temp, el2);
 }
 
-//DEPENDS ON THE TYPE OF THE ELEMENT
 int compareToSorting(TYPE_SORTING *el1, TYPE_SORTING *el2, int order) {
-#ifdef	TEST
-	incComp();
-#endif // TEST
 	int result;
 
-	if (compareTo_el(*el1, *el2)==more)
+	if (compareTo_elArray(*el1, *el2)==higher)
 		result = -1;
-	else if (compareTo_el(*el1, *el2)==less)
+	else if (compareTo_elArray(*el1, *el2)==lower)
 		result = 1;
 	else result = 0;
 
-	// The result is >0 if the order is correct and <0 if the order is incorrect
+	// The result is >0 if the order is right and <0 if the order is wrong
 	// return 0 if the two elements are equal
 	result = result * order;
 	return result; 
@@ -85,12 +72,14 @@ void bubbleSort(TYPE_SORTING a[], int dim, int order) {
 }
 
 void insert(TYPE_SORTING a[], int pos, int order) {
-	int i = pos - 1, x = a[pos]; 
+	int i = pos - 1;
+	TYPE_SORTING x;
+	putArray(a[pos], &x);
 	while (i >= 0 && compareToSorting(&x, &a[i], order)>0) {
-		a[i + 1] = a[i]; /* traslate */
+		putArray(a[i], &a[i + 1]); // traslate
 		i--; 
 	}
-	a[i + 1] = x; /* insert the element */
+	putArray(x, &a[i + 1]); // insert the element 
 }
 
 void insertSort(TYPE_SORTING a[], int dim, int order) {
@@ -99,28 +88,27 @@ void insertSort(TYPE_SORTING a[], int dim, int order) {
 	}
 }
 
-//attention, a[] is the result
 void merge(TYPE_SORTING a[], int dimA, TYPE_SORTING b[], int dimB, int order) {
 	int dimResult = (dimA + dimB);
 	TYPE_SORTING* temp = (TYPE_SORTING*) malloc(dimResult * sizeof(TYPE_SORTING));
-	if (temp == NULL) exit(-1);//check malloc
+	if (temp == NULL) exit(BAD_MALLOC_C);
 	int j_done = 0, result_index = 0;
 	for (int i = 0; i < dimA; i++) {
 		for (int j = j_done; j < dimB; j++) {
 			if (compareToSorting(&a[i], &b[j], order)<0) {
-				temp[result_index++] = b[j_done++];
+				putArray(b[j_done++], &temp[result_index++]);
 			}
 		}
-		temp[result_index++] = a[i];
+		putArray(a[i], &temp[result_index++]);
 	}
 	for (int i = j_done; i < dimB; i++) {
-		temp[result_index] = b[i];
+		putArray(b[i], &temp[result_index]);
 		result_index++;
 	}
 
 	// copy the result inside of a[]
 	for (int i = 0; i < dimResult; i++) {
-		a[i] = temp[i];
+		putArray(temp[i], &a[i]);
 	}
 	free(temp);
 }
@@ -141,32 +129,36 @@ void quickSortR(TYPE_SORTING a[], int iniz, int fine, int order) {
 		i = iniz; 
 		j = fine;
 		iPivot = fine;
-		put(a[iPivot], &pivot);
-		do  /* trova la posizione del pivot */ 
+		putArray(a[iPivot], &pivot);
+		do 
 		{ 
 			while (i < j && (compareToSorting(&a[i], &pivot, order)>=0)) i++; 
 			while (j > i && (compareToSorting(&a[j], &pivot, order)<=0)) j--;
 			if (i < j) swap(&a[i], &a[j]); 
 		}
 		while (i < j);
-		/* determinati i due sottoinsiemi */
-		/* posiziona il pivot */
-		if (i != iPivot && !isEqual(a[i],a[iPivot])) 
+
+		if (i != iPivot && compareToSorting(&a[i], &a[iPivot], order)!=0)
 		{ 
 			swap(&a[i], &a[iPivot]);
 			iPivot = i;
 		}
-		/* ricorsione sulle sottoparti, se necessario */
+
 		if (iniz < iPivot - 1)  
 			quickSortR(a, iniz, iPivot - 1, order); 
 		if (iPivot + 1 < fine)  
 			quickSortR(a, iPivot + 1, fine, order);
-	} /* (iniz < fine) */
-} /* quickSortR */
-
+	}
+} 
 
 void quickSort(TYPE_SORTING a[], int dim, int order) {
 	if (dim < 3 ) return;
 	quickSortR(a, 0, dim - 1, order);
 }
 
+boolean isSorted(TYPE_SORTING a[], int dim, int ord) {
+	for (int i = 0; i < dim-1; i++) {
+		if (compareToSorting(&a[i], &a[i + 1], ord) < 0) return FALSE;
+	}
+	return TRUE;
+}

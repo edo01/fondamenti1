@@ -1,5 +1,4 @@
 #pragma once
-
 /*
 	Fondamenti di Informatica T1 - modulo di laboratorio
 	Anno accademico 2020-2021
@@ -8,15 +7,19 @@
 	Numero matricola: 0000970140
 	numero esame:
 */
+#ifndef ESAME_H
+#define ESAME_H
 
-#ifndef MYSTRING_H
-#define MYSTRING_H
-
-#include <string.h>
+#include "sort.h"
+#include "array.h"
+#include "elementList.h"
 #include "elementArray.h"
+#include "error.h"
+#include "myfile.h"
+#include "list.h"
+#include <string.h>
 
-void replace(char s[], char toReplaceChars[], int dim, char replaceChar);
 
-boolean findChar(char c, char a[], int dim);
+#endif // !ESAME
 
-#endif // !MYSTRING_H
+

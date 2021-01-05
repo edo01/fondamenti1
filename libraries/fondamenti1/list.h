@@ -1,5 +1,12 @@
 #pragma once
+/*
+	Fondamenti di Informatica T1 - modulo di laboratorio
+	Anno accademico 2020-2021
 
+	Cognome nome: Carrà Edoardo
+	Numero matricola: 0000970140
+	numero esame:
+*/
 #ifndef LIST
 #define LIST
 
@@ -7,7 +14,10 @@
 #define INCREASING 1
 #define DECREASING -1
 
-#include "element.h"
+#include "elementList.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include "error.h"
 
 #define TYPE_LIST Element
 
@@ -21,7 +31,7 @@ typedef item* list;
 //primitive
 
 /// <summary>
-/// Returns an empty list.
+/// Return an empty list.
 /// </summary>
 /// <returns>An empty list.</returns>
 list emptyList();
@@ -29,36 +39,36 @@ list emptyList();
 /// <summary>
 /// Check if a list is empty.
 /// </summary>
-/// <param name="l">The list</param>
-/// <returns>TRUE if the list is empty, otherwise returns FALSE</returns>
+/// <param name="l">The list.</param>
+/// <returns>TRUE if the list is empty, otherwise return FALSE.</returns>
 boolean empty(list l);
 
 /// <summary>
-/// Returns the value of the head of the list. If the list is empty call exit(-1). The head of [7,2,3,4] is 7.
+/// Return the value of the head of the list. If the list is empty call exit(BAD_OPERATION_ON_EMPTY_LIST). The head of the list [7,2,3,4] is 7.
 /// </summary>
-/// <param name="l"></param>
-/// <returns>The value of the list</returns>
+/// <param name="l">The list.</param>
+/// <returns>The value of the head of the list.</returns>
 TYPE_LIST head(list l);
 
 /// <summary>
-/// Returns the pointer to the second element of the list. If the list is empty call exit(-1). The tail of [7,2,3,4] is [2,3,4].
+/// Return the pointer to the second element of the list. If the list is empty call exit(BAD_OPERATION_ON_EMPTY_LIST). The tail of [7,2,3,4] is [2,3,4].
 /// </summary>
-/// <param name="l"></param>
-/// <returns>The tail of the list</returns>
+/// <param name="l">The list.</param>
+/// <returns>The tail of the list.</returns>
 list tail(list l);
 
 /// <summary>
-/// The constructor of the list. Create a new list from a previuos list and a new element. cons(7,[2,3,4])->[7,2,3,4].
+/// The constructor of the list: create a new list from a previuos list and from a new element. cons(7,[2,3,4])->[7,2,3,4].
 /// </summary>
-/// <param name="e">the new element to add</param>
-/// <param name="l">the list where to add the element</param>
-/// <returns>The new list where the head is the new element and the tail is the previous list.</returns>
+/// <param name="e">The new element to add.</param>
+/// <param name="l">The list where the element has to be added.</param>
+/// <returns>The new list where the head is the new element and the tail is the list passed as a parameter.</returns>
 list cons(TYPE_LIST e, list l);
 
 /// <summary>
 /// Return the last element of the list. If the list is empty return NULL.
 /// </summary>
-/// <param name="l"></param>
+/// <param name="l">The list.</param>
 /// <returns></returns>
 item* lastElement(list l);
 
@@ -81,11 +91,8 @@ int length(list l);
 /// <returns>A copy of the list reversed.</returns>
 list reverse(list l);
 
-//deprecated
-list append_c(list l, list l2);
-
 /// <summary>
-/// A copy of the two list where the second one is appended to the first one.
+/// A copy of the two lists where the second one is hung to the first one.
 /// </summary>
 /// <param name="l"></param>
 /// <param name="l2"></param>
@@ -101,15 +108,15 @@ list append(list l, list l2);
 boolean isMember(TYPE_LIST el, list l);
 
 /// <summary>
-/// Print all the element of the list
+/// Print all the elements of the list.
 /// </summary>
 void show_list(list l);
 
 /// <summary>
-/// Returns a copy of the list.
+/// Return a copy of the list.
 /// </summary>
 /// <param name="l"></param>
-/// <returns>Returns a copy of the list.</returns>
+/// <returns>Return a copy of the list.</returns>
 list copy(list l);
 
 /// <summary>
@@ -120,16 +127,16 @@ list copy(list l);
 list delete(TYPE_LIST el, list l);
 
 /// <summary>
-/// Insert an element with the order given(INCREASING/DECREASING).
+/// Insert an element following the order given(INCREASING/DECREASING).
 /// </summary>
-/// <param name="el">The element to add to the list</param>
-/// <param name="l">The ordered list</param>
+/// <param name="el">The element to add to the list.</param>
+/// <param name="l">The ordered list.</param>
 /// <param name="ord">INCREASING/DECREASING</param>
-/// <returns>Returns an ordered list.</returns>
+/// <returns>Return an ordered list.</returns>
 list insord(TYPE_LIST el, list l, int ord);
 
 /// <summary>
-/// Merge two lists. Be careful, if you want to append the second list to the first use insted append(list l1, list l2).
+/// Merge two lists. Be careful, if you want to hang the second list to the first use instead append(list l1, list l2).
 /// </summary>
 /// <param name="l1"></param>
 /// <param name="l2"></param>
@@ -137,7 +144,7 @@ list insord(TYPE_LIST el, list l, int ord);
 list mergeList(list l1, list l2);
 
 /// <summary>
-/// Return the list of the elements shared by the two list.
+/// Return the list of the elements shared by the two lists.
 /// </summary>
 /// <param name="l1"></param>
 /// <param name="l2"></param>

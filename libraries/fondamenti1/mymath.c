@@ -1,3 +1,12 @@
+/*
+    Fondamenti di Informatica T1 - modulo di laboratorio
+    Anno accademico 2020-2021
+
+    Cognome nome: Carrà Edoardo
+    Numero matricola: 0000970140
+    numero esame:
+*/
+
 #include "mymath.h"
 
 /*

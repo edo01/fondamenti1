@@ -2,114 +2,41 @@
 	Fondamenti di Informatica T1 - modulo di laboratorio
 	Anno accademico 2020-2021
 
-	Powered by Edoardo Carrà
+	Cognome nome: Carrà Edoardo 
+	Numero matricola: 0000970140
+	numero esame: 
 */
 //#pragma warning(disable:4996)
-
-
-#include "esercizi.h"
-#include "array.h"
 
 //#define _CRT_SECURE_NO_WARNINGS
 //#define _CRT_SECURE_NO_DEPRECATE 
 
-/*
-
-int input;
-list l = emptyList();
-
-for (int i = 0; i < 10; i++) {
-	printf("\ninserisci un numero:");
-	scanf("%d", &input);
-	if (input == 0) break;
-	l = insord(input, l, INCREASING);
-	show_list(l);
-}
-
-//show_list(delete(5,l));
-
-list l2 = emptyList();
-
-for (int i = 0; i < 10; i++) {
-	printf("\ninserisci un numero:");
-	scanf("%d", &input);
-	if (input == 0) break;
-	l2 = cons(input, l2);
-}
-show_list(l2);
-
-show_list(append_c(l, l2));
-return 0;*/
-
+#include <assert.h>
 #include "sort.h"
 #include "list.h"
+#include "elementArray.h"
+#include "elementList.h"
+#include "array.h"
 
-void stamp(int p[], int dim) {
-	for (int i = 0; i < dim; i++) {
-		printf("%d\t", p[i]);
-	}
-	printf("\n");
-}
-
-void isSorted(int p[], int dim) {
-	for (int i = 0; i < dim - 1; i++) {
-		if (p[i] > p[i + 1]) {
-			printf("\n------------------------------NON ORDINATO");
-			return;
-		}
-	}
-}
-
-void testSorting() {
-	for (int dim = 0; dim < 20; dim++) {
-		printf("\n\nDIMENSIONE %d\n", dim);
-		int* p = malloc(dim * sizeof(int));
-
-		printf("NAIVE\n");
-		fill_random(p, dim);
-		stamp(p, dim);
-		naiveSort(p, dim, INCREASING);
-		stamp(p, dim);
-		isSorted(p, dim);
-
-		printf("\n\n");
-		printf("BUBBLE\n");
-		fill_random(p, dim);
-		stamp(p, dim);
-		bubbleSort(p, dim, INCREASING);
-		stamp(p, dim);
-		isSorted(p, dim);
-
-		printf("\n\n");
-		printf("INSERT\n");
-		fill_random(p, dim);
-		stamp(p, dim);
-		insertSort(p, dim, INCREASING);
-		stamp(p, dim);
-		isSorted(p, dim);
-
-		printf("\n\n");
-		printf("MERGE\n");
-		fill_random(p, dim);
-		stamp(p, dim);
-		mergeSort(p, dim, INCREASING);
-		stamp(p, dim);
-		isSorted(p, dim);
-
-		printf("\n\n");
-		printf("QUICKSORT\n");
-		fill_random(p, dim);
-		stamp(p, dim);
-		quickSort(p, dim, INCREASING);
-		stamp(p, dim);
-		isSorted(p, dim);
-		
-		
-		free(p);
-	}
-}
 
 
 int main() {
-	testSorting();
+
+	list l = emptyList();
+	ElementArray* el;
+
+	//esercizio 1
+	printf("-----------------ESERCIZIO 1------------------\n");
+	
+
+
+	//esercizio 2
+	printf("\n\n-----------------ESERCIZIO 2------------------\n");
+
+
+
+	//esercizio 3
+	printf("\n\n-----------------ESERCIZIO 3------------------\n");
+
+	return 0;
 }

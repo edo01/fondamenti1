@@ -15,48 +15,51 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="mymath.c">
-      <Filter>File di origine</Filter>
-    </ClCompile>
-    <ClCompile Include="main.c">
-      <Filter>File di origine</Filter>
-    </ClCompile>
     <ClCompile Include="array.c">
       <Filter>File di origine</Filter>
     </ClCompile>
-    <ClCompile Include="mystring.c">
+    <ClCompile Include="elementArray.c">
       <Filter>File di origine</Filter>
     </ClCompile>
-    <ClCompile Include="esercizi.h">
+    <ClCompile Include="elementList.c">
       <Filter>File di origine</Filter>
     </ClCompile>
-    <ClCompile Include="sort.c">
-      <Filter>File di origine</Filter>
-    </ClCompile>
-    <ClCompile Include="element.c">
+    <ClCompile Include="esame.c">
       <Filter>File di origine</Filter>
     </ClCompile>
     <ClCompile Include="list.c">
       <Filter>File di origine</Filter>
     </ClCompile>
+    <ClCompile Include="main.c">
+      <Filter>File di origine</Filter>
+    </ClCompile>
     <ClCompile Include="myfile.c">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="mymath.c">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="mystring.c">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="sort.c">
       <Filter>File di origine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="mymath.h">
-      <Filter>File di intestazione</Filter>
-    </ClInclude>
     <ClInclude Include="array.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
-    <ClInclude Include="mystring.h">
+    <ClInclude Include="elementArray.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
-    <ClInclude Include="sort.h">
+    <ClInclude Include="elementList.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
-    <ClInclude Include="element.h">
+    <ClInclude Include="error.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="esame.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
     <ClInclude Include="list.h">
@@ -65,12 +68,14 @@
     <ClInclude Include="myfile.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="input.txt" />
-    <Text Include="output.txt" />
-    <Text Include="persone.txt">
-      <Filter>File di risorse</Filter>
-    </Text>
+    <ClInclude Include="mymath.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="mystring.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="sort.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

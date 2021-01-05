@@ -1,10 +1,18 @@
+#pragma once 
+/*
+	Fondamenti di Informatica T1 - modulo di laboratorio
+	Anno accademico 2020-2021
 
+	Cognome nome: Carrà Edoardo
+	Numero matricola: 0000970140
+	numero esame:
+*/
 #ifndef MYMATH
 #define MYMATH
 
 #include <math.h>
 
-#include "element.h"
+#include "elementArray.h"
 
 /****************complex*****************/
 void toPolar(double, double, double*, double*);

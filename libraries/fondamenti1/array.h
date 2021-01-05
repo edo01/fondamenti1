@@ -1,24 +1,23 @@
+#pragma once
+
+/*
+	Fondamenti di Informatica T1 - modulo di laboratorio
+	Anno accademico 2020-2021
+
+	Cognome nome: Carrà Edoardo
+	Numero matricola: 0000970140
+	numero esame:
+*/
 
 #ifndef ARRAY
 #define ARRAY
 
-#include "element.h"
+#include "elementArray.h"
+#include "error.h"
 
-#define TYPE_SUBARRAY Element
-#define TYPE_FILL Element
-#define TYPE_FIND Element
+#define TYPE ElementArray
 
 //TODO: TEST LIBRARIES.
-
-
-/*
-* Fill the array from stdin
-* TYPE a[] is the array to fill
-* int dim is the  physical dimension of the array
-*
-* return the logical dimension of the array
-*/
-int fill(TYPE_FILL a[], int dim);
 
 /*
 * Extract from an array a sub array
@@ -31,17 +30,21 @@ int fill(TYPE_FILL a[], int dim);
 *
 * return the first element of the subarray
 */
-TYPE_SUBARRAY* subArray(TYPE_SUBARRAY* a, int dimA, TYPE_SUBARRAY first, TYPE_SUBARRAY last, int* dimS);
+TYPE* subArray(TYPE* a, int dimA, TYPE first, TYPE last, int* dimS);
 
 /*
 * Find inside of an array the given element el
 *
 * return 1 if it is present, otherwise return 0
 */
-boolean find(TYPE_FIND array[], int dim, TYPE_FIND el);
+boolean find(TYPE array[], int dim, TYPE el);
 
-boolean find_position(TYPE_FIND array[], int dim, TYPE_FIND el, int* pos);
+TYPE* deleteDuplicates(TYPE a[], int dim, int* newDim);
+
+boolean find_position(TYPE array[], int dim, TYPE el, int* pos);
 
 void fill_random(int a[], int dim);
+
+void printArray(TYPE a[], int dim);
 
 #endif // !ARRAY
